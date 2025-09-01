@@ -8,13 +8,12 @@
 <body>
 
     <h2>Iniciar Sesión</h2>
-    <form action="../enrutador/index.php?action=login" method="post">
+    <form action="../enrutador/index.php?action=login" method="POST"> <!--Es un POST, eso es lo comparara en mi enrutador-->
         <label>Email:</label><br>
         <input type="email" name="email" required><br>
         <label>Contraseña:</label><br>
         <input type="password" name="password" required><br><br>
-        <input type="submit" value="Iniciar Sesion">
-        
+        <button type="submit" class="form-button">Iniciar sesion</button>
     </form>
 
 </body>

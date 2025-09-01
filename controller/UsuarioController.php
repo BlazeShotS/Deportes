@@ -31,16 +31,26 @@ class UsuarioController{
 
 
     
-    public function login($email, $password) {
+    public function login($data) {
+        
+        $email = $data['email'] ?? null;
+        $password = $data['password'] ?? null;
+
+        if (!$email || !$password) {
+           return "Faltan credenciales";
+        }
+
         $usuario = $this->dao->login($email, $password);
 
         if ($usuario) {
             session_start();
-            $_SESSION['usuario_id'] = $usuario->getId();
+            $_SESSION['usuario_id'] = $usuario->getId(); //Se guarda datos del usuario como el id , en usuario_id
             $_SESSION['usuario_nombre'] = $usuario->getNombre();
-            return true;
+
+            header("Location: ../index.php");
+            exit;
         } else {
-            return false;
+            return "Usuario o contraseña incorrectos.";
         }
     }
 
