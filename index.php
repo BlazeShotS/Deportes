@@ -22,7 +22,7 @@
         <ul>
           <li><a href="#">Inicio</a></li>
           <li><a href="#">Servicios</a></li>
-          <li><a href="#">Login</a></li>
+          <li><a href="view/Login.php">Login</a></li>
           <li><a href="view/RegistroUsuario.php">Registrarse</a></li>
           <li><a href="#">Acerca</a></li>
           <li><a class="primary" href="#">Contacto</a></li>

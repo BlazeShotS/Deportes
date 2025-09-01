@@ -30,4 +30,19 @@ class UsuarioController{
     }
 
 
+    
+    public function login($email, $password) {
+        $usuario = $this->dao->login($email, $password);
+
+        if ($usuario) {
+            session_start();
+            $_SESSION['usuario_id'] = $usuario->getId();
+            $_SESSION['usuario_nombre'] = $usuario->getNombre();
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+
 }
