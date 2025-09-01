@@ -3,6 +3,9 @@ require_once __DIR__ . "/../model/Usuario.php";
 
 class UsuarioDAO{
 
+    //Con $ → variables, propiedades, parámetros (valores guardados en memoria).
+    //Sin $ → clases, métodos, funciones, constantes (cosas que no son variables, pero puedes usarlas para crear o ejecutar algo).
+    
     private $conn;
 
     public function __construct($db){
@@ -17,7 +20,7 @@ class UsuarioDAO{
         $stmt->bindValue(":apellido", $usuario->getApellido());
         $stmt->bindValue(":edad", $usuario->getEdad());
         $stmt->bindValue(":email", $usuario->getEmail());
-        $stmt->bindValue(":password", $usuario->getPassword());
+        $stmt->bindValue(":password", $usuario->getPassword()); //Se guarda encriptado , pero con un hash en la bd
 
         return $stmt->execute();
     }
@@ -33,7 +36,7 @@ class UsuarioDAO{
             $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
             // Verificar password (se recomienda usar password_hash en el registro)
-            if (password_verify($password, $row['password'])) {
+            if (password_verify($password, $row['password'])) { //Busca el hash guardado de la contraseña encriptada si es valida , se crea un objeto Usuario
                 $usuario = new Usuario();
                 $usuario->setId($row['id']);
                 $usuario->setNombre($row['nombre']);

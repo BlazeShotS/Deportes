@@ -5,8 +5,11 @@ require_once __DIR__ . "/../dao/UsuarioDAO.php";
 
 
 class UsuarioController{
+    
+    //Con $ → variables, propiedades, parámetros (valores guardados en memoria).
+    //Sin $ → clases, métodos, funciones, constantes (cosas que no son variables, pero puedes usarlas para crear o ejecutar algo).
 
-    private $dao;
+    private $dao;//Siempre que tiene $ es una variable
 
     public function __construct(){
         $db = (new Database())->getConnection();//Metodo de mi Conexion
@@ -23,7 +26,8 @@ class UsuarioController{
         $usuario->setPassword($data['password']);
 
         if($this->dao->registrar($usuario)) {
-            return "Usuario registrado correctamente.";
+            header("Location: ../view/Login.php");
+            exit;
         } else {
             return "Error al registrar el usuario.";
         }
@@ -44,7 +48,7 @@ class UsuarioController{
 
         if ($usuario) {
             session_start();
-            $_SESSION['usuario_id'] = $usuario->getId(); //Se guarda datos del usuario como el id , en usuario_id
+            $_SESSION['usuario_id'] = $usuario->getId(); //Se guarda datos del usuario como el id , en usuario_id ,dentro de $_SESSION
             $_SESSION['usuario_nombre'] = $usuario->getNombre();
 
             header("Location: ../index.php");

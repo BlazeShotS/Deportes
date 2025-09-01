@@ -1,11 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
 </head>
+
 <body>
+
+    <?php if (!empty($mensaje)): ?>
+        <div style="color:red; margin-bottom:10px;">
+            <?= htmlspecialchars($mensaje) ?>
+        </div>
+    <?php endif; ?>
 
     <h2>Iniciar Sesión</h2>
     <form action="../enrutador/index.php?action=login" method="POST"> <!--Es un POST, eso es lo comparara en mi enrutador-->
@@ -17,4 +25,5 @@
     </form>
 
 </body>
+
 </html>

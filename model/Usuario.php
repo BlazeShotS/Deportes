@@ -33,7 +33,7 @@ class Usuario{
     public function setApellido($apellido) { $this->apellido = $apellido; }
     public function setEdad($edad) { $this->edad = $edad; }
     public function setEmail($email) { $this->email = $email; }
-    public function setPassword($password) { 
+    public function setPassword($password) { //Esto hace , que nunca lo guarde en texto plano , sino encriptado
         $this->password = password_hash($password, PASSWORD_BCRYPT); 
     }
 
