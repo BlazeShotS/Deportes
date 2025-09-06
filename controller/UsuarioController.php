@@ -9,6 +9,9 @@ class UsuarioController{
     //Con $ → variables, propiedades, parámetros (valores guardados en memoria).
     //Sin $ → clases, métodos, funciones, constantes (cosas que no son variables, pero puedes usarlas para crear o ejecutar algo).
 
+    //header("Location") → cambia la URL y hace una nueva petición HTTP (navegador va a otra página).
+    //include → carga el archivo en la misma petición, sin cambiar la URL.
+
     private $dao;//Siempre que tiene $ es una variable
 
     public function __construct(){

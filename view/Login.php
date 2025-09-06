@@ -5,24 +5,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
+    <link rel="stylesheet" href="../assets/css/Login.css">
 </head>
 
 <body>
 
-    <?php if (!empty($mensaje)): ?>
-        <div style="color:red; margin-bottom:10px;">
-            <?= htmlspecialchars($mensaje) ?>
-        </div>
-    <?php endif; ?>
+    <div class="login-container">
+        <?php if (!empty($mensaje)): ?>
+            <div class="error-message">
+                <?= htmlspecialchars($mensaje) ?>
+            </div>
+        <?php endif; ?>
 
-    <h2>Iniciar Sesión</h2>
-    <form action="../enrutador/index.php?action=login" method="POST"> <!--Es un POST, eso es lo comparara en mi enrutador-->
-        <label>Email:</label><br>
-        <input type="email" name="email" required><br>
-        <label>Contraseña:</label><br>
-        <input type="password" name="password" required><br><br>
-        <button type="submit" class="form-button">Iniciar sesion</button>
-    </form>
+        <h2 class="login-title">Iniciar Sesión</h2>
+        <form action="../enrutador/index.php?action=login" method="POST"> <!--Es un POST eso es lo que comparara en mi enrutador-->
+            <div class="form-group">
+                <label class="form-label">Email:</label>
+                <input type="email" name="email" class="form-input" required>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">Contraseña:</label>
+                <input type="password" name="password" class="form-input" required>
+            </div>
+
+            <button type="submit" class="form-button">Iniciar sesión</button>
+        </form>
+    </div>
 
 </body>
 
