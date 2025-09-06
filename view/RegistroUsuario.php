@@ -3,9 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <title>Registro de Usuario</title>
-    <link rel="stylesheet" href="../assets/css/RegistroUsuario.css"> <!-- Enlace al CSS externo -->
+    <link rel="stylesheet" href="../assets/css/RegistroUsuario.css">
 </head>
 <body>
+
+    <?php include '../partials/header.php'; ?> <!-- Incluye el header -->
+
     <div class="form-container">
         <h2 class="form-title">Registrar Usuario</h2>
         <form method="POST" action="../enrutador/index.php?action=registrar" class="formulario">
@@ -17,5 +20,8 @@
             <button type="submit" class="form-button">Registrar</button>
         </form>
     </div>
+
+    <?php include '../partials/footer.php'; ?> <!-- Incluye el header -->
+
 </body>
 </html>
