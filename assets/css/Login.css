@@ -1,67 +1,64 @@
-    body {
-        font-family: Arial, sans-serif;
-        background-color: #f3f4f6;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-        margin: 0;
-    }
+.main-login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 60vh;
+}
 
-    .login-container {
-        background-color: #fff;
-        padding: 2rem;
-        border-radius: 12px;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-        width: 350px;
-        text-align: center;
-    }
+.login-container {
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 350px;
+    text-align: center;
+}
 
-    .login-title {
-        font-size: 1.5rem;
-        margin-bottom: 1.5rem;
-        color: #333;
-    }
+.login-title {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    color: #333;
+}
 
-    .form-group {
-        text-align: left;
-        margin-bottom: 1rem;
-    }
+.form-group {
+    text-align: left;
+    margin-bottom: 1rem;
+}
 
-    .form-label {
-        font-weight: bold;
-        font-size: 0.9rem;
-        display: block;
-        margin-bottom: 0.3rem;
-        color: #444;
-    }
+.form-label {
+    font-weight: bold;
+    font-size: 0.9rem;
+    display: block;
+    margin-bottom: 0.3rem;
+    color: #444;
+}
 
-    .form-input {
-        width: 100%;
-        padding: 0.6rem;
-        border: 1px solid #ccc;
-        border-radius: 8px;
-        font-size: 1rem;
-    }
+.form-input {
+    width: 100%;
+    padding: 0.6rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+}
 
-    .form-button {
-        width: 100%;
-        padding: 0.8rem;
-        background-color: #2563eb;
-        color: #fff;
-        border: none;
-        border-radius: 8px;
-        font-size: 1rem;
-        cursor: pointer;
-        transition: background 0.3s ease;
-    }
+.form-button {
+    width: 100%;
+    padding: 0.8rem;
+    background-color: #2563eb;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
 
-    .form-button:hover {
-        background-color: #1e40af;
-    }
+.form-button:hover {
+    background-color: #1e40af;
+}
 
-    .error-message {
-        color: #dc2626;
-        margin-bottom: 1rem;
-        font-size: 0.9rem;
-    }
+.error-message {
+    color: #dc2626;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+}

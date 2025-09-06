@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="utf-8" />
@@ -7,29 +7,9 @@
   <link rel="stylesheet" href="estilo.css">
 </head>
 <body>
-  <header>
-    <div class="container nav">
-      <div class="brand">
-        <div>
-            <br>
-          <strong>MUNDO DEPORTES</strong>
-          <br>
-          <hr>
-          <div class="subtitle">😊</div>
-        </div>
-      </div>
-      <nav>
-        <ul>
-          <li><a href="#">Inicio</a></li>
-          <li><a href="#">Servicios</a></li>
-          <li><a href="view/Login.php">Login</a></li>
-          <li><a href="view/RegistroUsuario.php">Registrarse</a></li>
-          <li><a href="#">Acerca</a></li>
-          <li><a class="primary" href="#">Contacto</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
+  
+  <?php include 'partials/header.php'; ?> <!-- Incluye el header -->
+
 
   <main class="container">
     <section class="hero">
@@ -64,11 +44,7 @@
     </section>
   </main>
 
-  <footer>
-    <div class="container footer">
-      <div>© 2025 Mi Sitio</div>
-      <div class="footer-note">Hecho con ❤️ — Simple y práctico</div>
-    </div>
-  </footer>
+  <?php include 'partials/footer.php'; ?> <!-- Incluye el header -->
+
 </body>
 </html>
