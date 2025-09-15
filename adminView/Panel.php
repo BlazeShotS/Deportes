@@ -56,7 +56,7 @@ $rol = $_SESSION['usuario_rol'] ?? '';
         <div class="card ropa-deportiva">
             <h2>Categoria</h2>
             <p>Agrega categorias de ropas deportivas.</p>
-            <a href="/SITIOWEB/adminView/Categoria.php" class="btn">Explorar</a>
+            <a href="/SITIOWEB/enrutador/index.php?action=categorias" class="btn">Explorar</a>
         </div>
 
         <div class="card quejas-reclamos">
@@ -66,7 +66,7 @@ $rol = $_SESSION['usuario_rol'] ?? '';
         </div>
     </main>
 
-    <?php include '../partials/footer.php'; ?> <!-- Incluye el header -->
+    <?php include '../partials/footer.php'; ?> <!-- Incluye el footer -->
 
     <script>
         document.querySelector(".dropdown-btn").addEventListener("click", function() {

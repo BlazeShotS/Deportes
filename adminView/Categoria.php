@@ -19,14 +19,15 @@ $mensaje = $mensaje ?? "";
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Categoria</title>
     <link rel="stylesheet" href="/SITIOWEB/assets/css/Categoria.css">
 </head>
-<body>
 
+<body>
 
     <header class="header-panel">
         <h1>Bienvenido al Panel</h1>
@@ -36,12 +37,12 @@ $mensaje = $mensaje ?? "";
             </span>
             <br>
             <a href="/SITIOWEB/adminView/Panel.php" style="color: white;">Volver</a>
-            
+
         </div>
     </header>
 
 
-     <div class="contenedor-form">
+    <div class="contenedor-form">
         <h1>Gestión de Categorías</h1>
 
         <!-- Mostrar mensaje de error o éxito -->
@@ -51,8 +52,7 @@ $mensaje = $mensaje ?? "";
             </div>
         <?php endif; ?>
 
-        <!-- Formulario -->
-        <form class="form-categoria" action="../router/router.php?action=categorias" method="POST">
+        <form class="form-categoria" action="../enrutador/index.php?action=categorias" method="POST">
             <div class="form-group">
                 <label for="nombre_categoria">Nombre de la categoría:</label>
                 <input type="text" id="nombre_categoria" name="nombre_categoria" required>
@@ -69,19 +69,21 @@ $mensaje = $mensaje ?? "";
                 <tr>
                     <th>ID</th>
                     <th>Nombre Categoría</th>
+                    <th>Accion</th>
                 </tr>
             </thead>
             <tbody>
-                <?php if (!empty($categorias) && is_array($categorias)): ?>
+                <?php if (!empty($categorias)): ?>
                     <?php foreach ($categorias as $cat): ?>
                         <tr>
-                            <td><?= htmlspecialchars($cat['categoria_id']) ?></td>
-                            <td><?= htmlspecialchars($cat['nombre_categoria']) ?></td>
+                            <td><?= htmlspecialchars($cat->getId()) ?></td>
+                            <td><?= htmlspecialchars($cat->getNombreCategoria()) ?></td>
+                            <td>Editar | Eliminar</td>
                         </tr>
                     <?php endforeach; ?>
                 <?php else: ?>
                     <tr>
-                        <td colspan="2">No hay categorías registradas.</td>
+                        <td colspan="3">No hay categorías registradas.</td>
                     </tr>
                 <?php endif; ?>
             </tbody>
@@ -89,8 +91,9 @@ $mensaje = $mensaje ?? "";
     </div>
 
 
-    <?php include '../partials/footer.php'; ?> <!-- Incluye el header -->
+    <?php include '../partials/footer.php'; ?> <!-- Incluye el footer -->
 
 
 </body>
+
 </html>

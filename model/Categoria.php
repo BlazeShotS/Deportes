@@ -6,9 +6,7 @@ class Categoria{
     private $nombre_categoria;
 
     // Constructor
-    public function __construct($nombre_categoria = "") {
-        $this->nombre_categoria = $nombre_categoria;
-    }
+    public function __construct() {}
 
     // Getters
     public function getId() {

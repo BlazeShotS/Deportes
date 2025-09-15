@@ -8,6 +8,7 @@ $action = $_GET['action'] ?? "home"; // acción por defecto
 $controller = new UsuarioController();
 $categoriaController = new CategoriaController();
 
+
 //Así el enrutador sabe si debe mostrar el formulario (GET) o procesar el login (POST).
 switch ($action) {
     // --------- USUARIO ---------
@@ -33,9 +34,21 @@ switch ($action) {
         if ($_SERVER["REQUEST_METHOD"] === "POST") {
             // Registrar nueva categoría
             $mensaje = $categoriaController->registrarCategoria($_POST);
+
+            // Guardar mensaje en sesión para mostrarlo después del redirect
+            $_SESSION['mensaje'] = $mensaje;
+
+            // Redirigir a la misma página para evitar resubmission
+            header("Location: ../enrutador/index.php?action=categorias");
+            exit;
         }
-        // Siempre lista las categorías
+
+        // Mostrar mensaje si existe
+        $mensaje = $_SESSION['mensaje'] ?? "";
+        unset($_SESSION['mensaje']); // Limpiar mensaje
+
         $categorias = $categoriaController->listarCategorias();
+
         include "../adminView/Categoria.php";
         break;
     default:

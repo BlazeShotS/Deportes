@@ -18,10 +18,23 @@ class CategoriaDAO{
     }
 
 
-    public function listar(){        
+    public function listar(): array {        
         $sql = "SELECT * FROM categoria";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute();
-        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        // PDO::FETCH_CLASS llenará solo propiedades públicas, así que usamos setters
+        $categorias = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $resultado = [];
+        foreach($categorias as $row){
+            $cat = new Categoria();
+            $cat->setId($row['id']);
+            $cat->setNombreCategoria($row['nombre_categoria']);
+            $resultado[] = $cat;
+        }
+        return $resultado;
     }
+    
+
+    
 }
