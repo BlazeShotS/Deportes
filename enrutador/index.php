@@ -22,7 +22,7 @@ switch ($action) {
 
     case "registrar":
         if ($_SERVER["REQUEST_METHOD"] === "POST") {
-            $mensaje = $controller->registrar($_POST); //Le paso un array  de los datos que vendra desde mi html
+            $mensaje = $controller->registrar($_POST); //$_POST es un array asociativo donde PHP automáticamente coloca todos los datos que se enviaron desde un formulario con method="POST
         } else {
             include "../view/RegistroUsuario.php";
         }

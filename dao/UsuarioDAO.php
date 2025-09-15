@@ -13,7 +13,7 @@ class UsuarioDAO{
     }
 
     public function registrar(Usuario $usuario){
-        $sql = "INSERT INTO usuarios (nombre, apellido, edad, email, password) VALUES (:nombre, :apellido, :edad, :email, :password)";
+        $sql = "INSERT INTO usuarios (nombre, apellido, edad, email, password, rol) VALUES (:nombre, :apellido, :edad, :email, :password, :rol)";
         $stmt = $this->conn->prepare($sql);
 
         $stmt->bindValue(":nombre", $usuario->getNombre());
@@ -21,6 +21,7 @@ class UsuarioDAO{
         $stmt->bindValue(":edad", $usuario->getEdad());
         $stmt->bindValue(":email", $usuario->getEmail());
         $stmt->bindValue(":password", $usuario->getPassword()); //Se guarda encriptado , pero con un hash en la bd
+        $stmt->bindValue(":rol", $usuario->getRol());
 
         return $stmt->execute();
     }

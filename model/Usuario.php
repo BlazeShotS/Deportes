@@ -9,14 +9,16 @@ class Usuario{
     private $edad;
     private $email;
     private $password;
+    private $rol;
 
     //Acceso a las variables
-    public function __construct($nombre = "", $apellido = "", $edad = 0, $email = "", $password = ""){
+    public function __construct($nombre = "", $apellido = "", $edad = 0, $email = "", $password = "",$rol = "ADMIN"){
         $this->nombre = $nombre;
         $this->apellido = $apellido;
         $this->edad = $edad;
         $this->email = $email;
-        $this->password = $password;
+        $this->setPassword($password);
+        $this->rol = $rol;
     }
 
     // Getters
@@ -26,6 +28,8 @@ class Usuario{
     public function getEdad() { return $this->edad; }
     public function getEmail() { return $this->email; }
     public function getPassword() { return $this->password; }
+    public function getRol() { return $this->rol; }
+
 
     // Setters
     public function setId($id) { $this->id = $id; }
@@ -36,6 +40,7 @@ class Usuario{
     public function setPassword($password) { //Esto hace , que nunca lo guarde en texto plano , sino encriptado
         $this->password = password_hash($password, PASSWORD_BCRYPT); 
     }
+    public function setRol($rol) { $this->rol = $rol; }
 
 
 }

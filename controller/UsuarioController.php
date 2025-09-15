@@ -20,7 +20,7 @@ class UsuarioController{
     }
 
     
-    public function registrar($data) {
+    public function registrar($data) { # $data es el array que recibe
         $usuario = new Usuario();
         $usuario->setNombre($data['nombre']); //nombre , viene del name=nombre del html
         $usuario->setApellido($data['apellido']);
