@@ -58,9 +58,9 @@ class UsuarioController{
 
             // Redirigir según rol
             if ($usuario->getRol() === "ADMIN") {
-                header("Location: ../admin/Panel.php");
+                header("Location: ../adminView/Panel.php");
             } elseif ($usuario->getRol() === "CLIENT") {
-                header("Location: ../client/Catalogo.php");
+                header("Location: ../clientView/Catalogo.php");
             } else {
                 header("Location: ../index.php");
             }

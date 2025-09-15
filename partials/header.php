@@ -28,8 +28,8 @@
                     <li><a href="#">Servicios</a></li>
                     <li><a href="/SITIOWEB/view/Login.php">Login</a></li>
                     <li><a href="/SITIOWEB/view/RegistroUsuario.php">Registrarse</a></li>
-                    <li><a href="#">Acerca</a></li>
                     <li><a href="#">Contacto</a></li>
+                    <li><a href="#">Quejas</a></li>
                 </ul>
             </nav>
         </div>

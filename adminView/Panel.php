@@ -56,7 +56,7 @@ $rol = $_SESSION['usuario_rol'] ?? '';
         <div class="card ropa-deportiva">
             <h2>Categoria</h2>
             <p>Agrega categorias de ropas deportivas.</p>
-            <button class="btn">Explorar</button>
+            <a href="/SITIOWEB/adminView/Categoria.php" class="btn">Explorar</a>
         </div>
 
         <div class="card quejas-reclamos">
