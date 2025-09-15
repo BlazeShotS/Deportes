@@ -20,7 +20,7 @@ body {
     justify-content: center;
     gap: 20px;
     flex-wrap: wrap;
-    padding: 20px;
+    padding: 100px;
 }
 
 /* Tarjeta base */
@@ -30,7 +30,12 @@ body {
     box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     padding: 20px;
     width: 280px;
+    min-height: 250px; /* 👈 todas tendrán la misma altura */
     text-align: center;
+
+    display: flex;           /* Flex interno */
+    flex-direction: column;  /* Organiza contenido en columna */
+    justify-content: space-between; /* Empuja botón al fondo */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 

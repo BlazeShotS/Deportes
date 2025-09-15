@@ -7,29 +7,36 @@
     <link rel="stylesheet" href="/SITIOWEB/assets/css/Panel.css">
 </head>
 <body>
-     
+
+    <?php include '../partials/header.php'; ?> <!-- Incluye el header -->
+
     <main class="contenedor-cards">
-        <!-- Tarjeta de usuarios -->
         <div class="card usuarios">
             <h2>Usuarios</h2>
             <p>Aquí podrás ver y gestionar a los usuarios registrados.</p>
             <button class="btn">Ver más</button>
         </div>
 
-        <!-- Tarjeta de ropa deportiva -->
         <div class="card ropa-deportiva">
             <h2>Ropa Deportiva</h2>
-            <p>Explora nuestra colección de ropa deportiva disponible.</p>
+            <p>Registra ropas deportivas.</p>
             <button class="btn">Explorar</button>
         </div>
 
-        <!-- Tarjeta de quejas y reclamos -->
+        <div class="card ropa-deportiva">
+            <h2>Categoria</h2>
+            <p>Agrega categorias de ropas deportivas.</p>
+            <button class="btn">Explorar</button>
+        </div>
+
         <div class="card quejas-reclamos">
             <h2>Quejas y Reclamos</h2>
             <p>En esta sección puedes dejar tus quejas o reclamos.</p>
             <button class="btn">Enviar</button>
         </div>
     </main>
+
+    <?php include '../partials/footer.php'; ?> <!-- Incluye el header -->
 
 </body>
 </html>
