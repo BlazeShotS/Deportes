@@ -53,8 +53,18 @@ class UsuarioController{
             session_start();
             $_SESSION['usuario_id'] = $usuario->getId(); //Se guarda datos del usuario como el id , en usuario_id ,dentro de $_SESSION
             $_SESSION['usuario_nombre'] = $usuario->getNombre();
+            $_SESSION['usuario_apellido'] = $usuario->getApellido();
+            $_SESSION['usuario_rol'] = $usuario->getRol();
 
-            header("Location: ../index.php");
+            // Redirigir según rol
+            if ($usuario->getRol() === "ADMIN") {
+                header("Location: ../admin/Panel.php");
+            } elseif ($usuario->getRol() === "CLIENT") {
+                header("Location: ../client/Catalogo.php");
+            } else {
+                header("Location: ../index.php");
+            }
+
             exit;
         } else {
             return "Usuario o contraseña incorrectos.";
