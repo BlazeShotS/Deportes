@@ -41,7 +41,7 @@ class UsuarioDAO{
                 $usuario = new Usuario();
                 $usuario->setId($row['id']);
                 $usuario->setNombre($row['nombre']);
-                $usuario->setNombre($row['apellido']);
+                $usuario->setApellido($row['apellido']);
                 $usuario->setEmail($row['email']);
                 $usuario->setPassword($row['password']);
                 $usuario->setRol($row['rol']);
