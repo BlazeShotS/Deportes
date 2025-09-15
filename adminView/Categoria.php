@@ -1,3 +1,18 @@
+<?php
+session_start();
+
+// Si no hay sesión iniciada, redirige al login
+if (!isset($_SESSION['usuario_id'])) {
+    header("Location: ../login.php");
+    exit;
+}
+
+// Recuperar datos de sesión
+$nombre = $_SESSION['usuario_nombre'] ?? '';
+$apellido = $_SESSION['usuario_apellido'] ?? '';
+$rol = $_SESSION['usuario_rol'] ?? '';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,10 +24,22 @@
 <body>
 
 
+    <header class="header-panel">
+        <h1>Bienvenido al Panel</h1>
+        <div class="user-menu">
+            <span class="user-name">
+                <?php echo $nombre . " " . $apellido; ?> (<?php echo $rol; ?>)
+            </span>
+            <br>
+            <a href="/SITIOWEB/adminView/Panel.php" style="color: white;">Volver</a>
+            
+        </div>
+    </header>
+
+
     <div class="contenedor-form">
         <h1>Gestión de Categorías</h1>
 
-        <!-- Formulario -->
         <form class="form-categoria">
             <div class="form-group">
                 <label for="nombre_categoria">Nombre de la categoría:</label>
@@ -50,6 +77,8 @@
     </div>
 
 
-    
+    <?php include '../partials/footer.php'; ?> <!-- Incluye el header -->
+
+
 </body>
 </html>
