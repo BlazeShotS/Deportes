@@ -1,10 +1,12 @@
 <?php
 require_once __DIR__ . "/../controller/UsuarioController.php";
+require_once __DIR__ . "/../controller/CategoriaController.php";
 
 
 $action = $_GET['action'] ?? "home"; // acción por defecto
 
 $controller = new UsuarioController();
+$categoriaController = new CategoriaController();
 
 //Así el enrutador sabe si debe mostrar el formulario (GET) o procesar el login (POST).
 switch ($action) {
@@ -27,7 +29,15 @@ switch ($action) {
             include "../view/RegistroUsuario.php";
         }
         break;
-
+    case "categorias":
+        if ($_SERVER["REQUEST_METHOD"] === "POST") {
+            // Registrar nueva categoría
+            $mensaje = $categoriaController->registrarCategoria($_POST);
+        }
+        // Siempre lista las categorías
+        $categorias = $categoriaController->listarCategorias();
+        include "../adminView/Categoria.php";
+        break;
     default:
         echo "Página no encontrada (404)";
         break;

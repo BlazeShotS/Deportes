@@ -11,6 +11,10 @@ if (!isset($_SESSION['usuario_id'])) {
 $nombre = $_SESSION['usuario_nombre'] ?? '';
 $apellido = $_SESSION['usuario_apellido'] ?? '';
 $rol = $_SESSION['usuario_rol'] ?? '';
+
+//Para el manejo de errores
+$mensaje = $mensaje ?? "";
+
 ?>
 
 <!DOCTYPE html>
@@ -37,10 +41,18 @@ $rol = $_SESSION['usuario_rol'] ?? '';
     </header>
 
 
-    <div class="contenedor-form">
+     <div class="contenedor-form">
         <h1>Gestión de Categorías</h1>
 
-        <form class="form-categoria">
+        <!-- Mostrar mensaje de error o éxito -->
+        <?php if (!empty($mensaje)): ?>
+            <div class="alerta">
+                <?= htmlspecialchars($mensaje) ?>
+            </div>
+        <?php endif; ?>
+
+        <!-- Formulario -->
+        <form class="form-categoria" action="../router/router.php?action=categorias" method="POST">
             <div class="form-group">
                 <label for="nombre_categoria">Nombre de la categoría:</label>
                 <input type="text" id="nombre_categoria" name="nombre_categoria" required>
@@ -60,18 +72,18 @@ $rol = $_SESSION['usuario_rol'] ?? '';
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>Deportiva</td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>Casual</td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>Formal</td>
-                </tr>
+                <?php if (!empty($categorias) && is_array($categorias)): ?>
+                    <?php foreach ($categorias as $cat): ?>
+                        <tr>
+                            <td><?= htmlspecialchars($cat['categoria_id']) ?></td>
+                            <td><?= htmlspecialchars($cat['nombre_categoria']) ?></td>
+                        </tr>
+                    <?php endforeach; ?>
+                <?php else: ?>
+                    <tr>
+                        <td colspan="2">No hay categorías registradas.</td>
+                    </tr>
+                <?php endif; ?>
             </tbody>
         </table>
     </div>

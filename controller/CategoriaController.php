@@ -9,8 +9,15 @@ class CategoriaController{
         $this->dao = new CategoriaDAO($db);
     }
 
+    public function listarCategorias(){
+        return $this->dao->listar();
+    }
+
     public function registrarCategoria($data){
-        
+        $categoria = new Categoria();
+        $categoria->setNombreCategoria($data['nombreCategoria']);
+       
+
     }
 
 
