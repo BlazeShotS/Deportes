@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once __DIR__ . "/../controller/UsuarioController.php";
 require_once __DIR__ . "/../controller/CategoriaController.php";
 
@@ -78,7 +79,7 @@ switch ($action) {
 
             default: // listar
                 $mensaje = $_SESSION['mensaje'] ?? "";
-                unset($_SESSION['mensaje']);
+                unset($_SESSION['mensaje']); // limpiar mensaje para que no quede en bucle
                 $categorias = $categoriaController->listarCategorias();
                 include "../adminView/Categoria.php"; //Este incluide sirve porque indica que la accion se hara en esta pestaña
         }

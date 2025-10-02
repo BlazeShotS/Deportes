@@ -1,5 +1,4 @@
 <?php
-session_start();
 
 // Si no hay sesión iniciada, redirige al login
 if (!isset($_SESSION['usuario_id'])) {
@@ -65,6 +64,13 @@ $mensaje = $mensaje ?? "";
                 <input type="text" id="nombre_categoria" name="nombre_categoria" value="<?= isset($categoriaEditar) ? htmlspecialchars($categoriaEditar->getNombreCategoria()) : '' ?>" required> <!--El value permite evaluar si es editar para que se llene el campo o este vacio si se va crear-->
             </div>
             <button type="submit" class="btn">Guardar</button>
+            
+            <!--Boton para cancelar si no se kiere editar-->
+            
+            <?php if (isset($categoriaEditar)): ?>
+            <a href="../enrutador/index.php?action=categorias&sub=listar" class="btn-cancelar">Cancelar</a>
+            <?php endif; ?>
+
         </form>
     </div>
 
