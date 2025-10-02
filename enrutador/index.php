@@ -68,6 +68,8 @@ switch ($action) {
                     $categorias = $categoriaController->listarCategorias();
                     include "../adminView/Categoria.php";
                 }
+                break;
+
             case "eliminar":
                 $id = $_GET['id'] ?? null;
                 $mensaje = $categoriaController->eliminarCategoria($id);

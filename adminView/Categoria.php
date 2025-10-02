@@ -61,7 +61,7 @@ $mensaje = $mensaje ?? "";
 
             <div class="form-group">
                 <label for="nombre_categoria">Nombre de la categoría:</label>
-                <input type="text" id="nombre_categoria" name="nombre_categoria" required>
+                <input type="text" id="nombre_categoria" name="nombre_categoria" value="<?= isset($categoriaEditar) ? htmlspecialchars($categoriaEditar->getNombreCategoria()) : '' ?>"required>
             </div>
             <button type="submit" class="btn">Guardar</button>
         </form>
