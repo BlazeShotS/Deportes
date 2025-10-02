@@ -48,20 +48,21 @@ $mensaje = $mensaje ?? "";
 
         <!-- Mostrar mensaje de error o éxito -->
         <?php if (!empty($mensaje)): ?>
-            <div class="alerta">
+            <div id="alerta" class="alerta <?= (strpos($mensaje, 'correctamente') !== false) ? 'exito' : 'error' ?>">
                 <?= htmlspecialchars($mensaje) ?>
             </div>
         <?php endif; ?>
+
         <!--Si $categoriaEditar tiene valor es editar , sino crear-->
         <form class="form-categoria" action="../enrutador/index.php?action=categorias&sub=<?= isset($categoriaEditar) ? "editar" : "crear" ?>" method="POST"> <!--Cuando se presiona el boton GUARDAR , pasa esto , si existe el objeto $categoriaEditar que seleccione desde la tabla significa que esta editando , si no existe por ende se esta creando-->
 
-           <?php if (isset($categoriaEditar)): ?>
-           <input type="hidden" name="id" value="<?= htmlspecialchars($categoriaEditar->getId()) ?>">
-           <?php endif; ?>
+            <?php if (isset($categoriaEditar)): ?>
+                <input type="hidden" name="id" value="<?= htmlspecialchars($categoriaEditar->getId()) ?>">
+            <?php endif; ?>
 
             <div class="form-group">
                 <label for="nombre_categoria">Nombre de la categoría:</label>
-                <input type="text" id="nombre_categoria" name="nombre_categoria" value="<?= isset($categoriaEditar) ? htmlspecialchars($categoriaEditar->getNombreCategoria()) : '' ?>"required> <!--El value permite evaluar si es editar para que se llene el campo o este vacio si se va crear-->
+                <input type="text" id="nombre_categoria" name="nombre_categoria" value="<?= isset($categoriaEditar) ? htmlspecialchars($categoriaEditar->getNombreCategoria()) : '' ?>" required> <!--El value permite evaluar si es editar para que se llene el campo o este vacio si se va crear-->
             </div>
             <button type="submit" class="btn">Guardar</button>
         </form>
@@ -85,7 +86,7 @@ $mensaje = $mensaje ?? "";
                             <td><?= htmlspecialchars($cat->getId()) ?></td>
                             <td><?= htmlspecialchars($cat->getNombreCategoria()) ?></td>
                             <td>
-                                <a href="../enrutador/index.php?action=categorias&sub=editar&id= <?= $cat->getId() ?>">Editar</a> |  <!--editar&id , ese id , es el que se envia al enrutador-->
+                                <a href="../enrutador/index.php?action=categorias&sub=editar&id= <?= $cat->getId() ?>">Editar</a> | <!--editar&id , ese id , es el que se envia al enrutador-->
                                 <a href="../enrutador/index.php?action=categorias&sub=eliminar&id= <?= $cat->getId() ?>" onclick="return confirm('¿Seguro que deseas eliminar esta categoría?');">Eliminar</a>
                             </td>
                         </tr>
@@ -98,6 +99,17 @@ $mensaje = $mensaje ?? "";
             </tbody>
         </table>
     </div>
+
+    <!--Para que el mensaje desaparezca en 3 segundos-->
+    <script>
+        setTimeout(() => {
+            const alerta = document.getElementById("alerta");
+            if (alerta) {
+                alerta.style.opacity = "0";
+                setTimeout(() => alerta.remove(), 1000); // se elimina del DOM después de la animación
+            }
+        }, 3000);
+    </script>
 
 
     <?php include '../partials/footer.php'; ?> <!-- Incluye el footer -->
