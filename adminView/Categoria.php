@@ -52,8 +52,8 @@ $mensaje = $mensaje ?? "";
                 <?= htmlspecialchars($mensaje) ?>
             </div>
         <?php endif; ?>
-
-        <form class="form-categoria" action="../enrutador/index.php?action=categorias&sub=<?= isset($categoriaEditar) ? "editar" : "crear" ?>" method="POST">
+        <!--Si $categoriaEditar tiene valor es editar , sino crear-->
+        <form class="form-categoria" action="../enrutador/index.php?action=categorias&sub=<?= isset($categoriaEditar) ? "editar" : "crear" ?>" method="POST"> <!--Cuando se presiona el boton GUARDAR , pasa esto , si existe el objeto $categoriaEditar que seleccione desde la tabla significa que esta editando , si no existe por ende se esta creando-->
 
            <?php if (isset($categoriaEditar)): ?>
            <input type="hidden" name="id" value="<?= htmlspecialchars($categoriaEditar->getId()) ?>">
@@ -61,7 +61,7 @@ $mensaje = $mensaje ?? "";
 
             <div class="form-group">
                 <label for="nombre_categoria">Nombre de la categoría:</label>
-                <input type="text" id="nombre_categoria" name="nombre_categoria" value="<?= isset($categoriaEditar) ? htmlspecialchars($categoriaEditar->getNombreCategoria()) : '' ?>"required>
+                <input type="text" id="nombre_categoria" name="nombre_categoria" value="<?= isset($categoriaEditar) ? htmlspecialchars($categoriaEditar->getNombreCategoria()) : '' ?>"required> <!--El value permite evaluar si es editar para que se llene el campo o este vacio si se va crear-->
             </div>
             <button type="submit" class="btn">Guardar</button>
         </form>

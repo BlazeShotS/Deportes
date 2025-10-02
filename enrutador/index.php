@@ -42,7 +42,6 @@ switch ($action) {
                     header("Location: ../enrutador/index.php?action=categorias&sub=listar");
                     exit;
                 }
-                //include "../adminView/CategoriaForm.php";
                 break;
 
             case "editar":
@@ -53,7 +52,7 @@ switch ($action) {
                     exit;
                 } else {
                     // Mostrar el formulario con datos para editar
-                    $id = $_GET['id'] ?? null; //Chapo el id del html
+                    $id = $_GET['id'] ?? null; //ese 'id' viene de mi href de editar id= <?= $cat->getId()
                     $categoriaEditar = null;
                     if ($id) {
                         foreach ($categoriaController->listarCategorias() as $cat) { 
@@ -71,7 +70,7 @@ switch ($action) {
                 break;
 
             case "eliminar":
-                $id = $_GET['id'] ?? null;
+                $id = $_GET['id'] ?? null; //ese 'id' viene de mi href de eliminar id= <?= $cat->getId()
                 $mensaje = $categoriaController->eliminarCategoria($id);
                 $_SESSION['mensaje'] = $mensaje;
                 header("Location: ../enrutador/index.php?action=categorias&sub=listar");
