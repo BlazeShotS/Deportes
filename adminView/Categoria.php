@@ -92,8 +92,8 @@ $mensaje = $mensaje ?? "";
                             <td><?= htmlspecialchars($cat->getId()) ?></td>
                             <td><?= htmlspecialchars($cat->getNombreCategoria()) ?></td>
                             <td>
-                                <a href="../enrutador/index.php?action=categorias&sub=editar&id= <?= $cat->getId() ?>">Editar</a> | <!--editar&id , ese id , es el que se envia al enrutador-->
-                                <a href="../enrutador/index.php?action=categorias&sub=eliminar&id= <?= $cat->getId() ?>" onclick="return confirm('¿Seguro que deseas eliminar esta categoría?');">Eliminar</a>
+                                <a href="../enrutador/index.php?action=categorias&sub=editar&id= <?= $cat->getId() ?>"  class="btn-editar">Editar</a> | <!--editar&id , ese id , es el que se envia al enrutador-->
+                                <a href="../enrutador/index.php?action=categorias&sub=eliminar&id= <?= $cat->getId() ?>" onclick="return confirm('¿Seguro que deseas eliminar esta categoría?');" class="btn-eliminar">Eliminar</a>
                             </td>
                         </tr>
                     <?php endforeach; ?>

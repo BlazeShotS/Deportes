@@ -38,7 +38,7 @@
         </div>
     </main>
 
-    <?php include '../partials/footer.php'; ?> <!-- Incluye el header -->
+    <?php include '../partials/footer.php'; ?> <!-- Incluye el footer -->
 
 </body>
 

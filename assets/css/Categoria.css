@@ -163,7 +163,7 @@ body {
     border: 1px solid #f5c6cb;
 }
 
-/*Para el boton de cancelar*/
+/*Para el boton de cancelar de editar*/
 .btn-cancelar {
     width: 100%;
     padding: 8px 2px;
@@ -207,3 +207,30 @@ body {
 }
 
 
+
+
+/* Botón Editar */
+.btn-editar {
+    padding: 6px 12px;
+    background-color: #2563eb;  /* azul */
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: background 0.3s ease;
+}
+.btn-editar:hover {
+    background-color: #1e40af; /* azul más oscuro */
+}
+
+/* Botón Eliminar */
+.btn-eliminar {
+    padding: 6px 12px;
+    background-color: #dc2626; /* rojo */
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: background 0.3s ease;
+}
+.btn-eliminar:hover {
+    background-color: #991b1b; /* rojo más oscuro */
+}
