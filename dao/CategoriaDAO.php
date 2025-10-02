@@ -36,4 +36,14 @@ class CategoriaDAO{
     }
 
     
+    public function editar(Categoria $categoria){
+        $sql = "UPDATE categoria SET nombre_categoria = :nombre_categoria WHERE id = :id";
+        $stmt = $this->conn->prepare($sql);
+
+        $stmt->bindValue(":nombre_categoria", $categoria->getNombreCategoria());
+        $stmt->bindValue(":id", $categoria->getId(), PDO::PARAM_INT);
+
+        return $stmt->execute();
+    }
+    
 }

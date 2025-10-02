@@ -31,25 +31,44 @@ switch ($action) {
         }
         break;
     case "categorias":
-        if ($_SERVER["REQUEST_METHOD"] === "POST") {
-            // Registrar nueva categoría
-            $mensaje = $categoriaController->registrarCategoria($_POST);
+        $method = $_SERVER["REQUEST_METHOD"];
+        $subAction = $_GET['sub'] ?? "listar";
 
-            // Guardar mensaje en sesión para mostrarlo después del redirect
-            $_SESSION['mensaje'] = $mensaje;
+        switch ($subAction) {
+            case "crear":
+                if ($method === "POST") {
+                    $mensaje = $categoriaController->registrarCategoria($_POST);
+                    $_SESSION['mensaje'] = $mensaje;
+                    header("Location: ../enrutador/index.php?action=categorias&sub=listar");
+                    exit;
+                }
+                break;
 
-            // Redirigir a la misma página para evitar resubmission
-            header("Location: ../enrutador/index.php?action=categorias");
-            exit;
+            case "editar":
+                if ($method === "POST") {
+                    $mensaje = $categoriaController->editarCategoria($_POST);
+                    $_SESSION['mensaje'] = $mensaje;
+                    header("Location: ../enrutador/index.php?action=categorias&sub=listar");
+                    exit;
+                }
+                $id = $_GET['id'] ?? null;
+                $categoria = $categoriaController->buscarCategoriaPorId($id);
+                include "../adminView/CategoriaForm.php"; // mismo form, reutilizado
+                break;
+
+            case "eliminar":
+                $id = $_GET['id'] ?? null;
+                $mensaje = $categoriaController->eliminarCategoria($id);
+                $_SESSION['mensaje'] = $mensaje;
+                header("Location: ../enrutador/index.php?action=categorias&sub=listar");
+                exit;
+
+            default: // listar
+                $mensaje = $_SESSION['mensaje'] ?? "";
+                unset($_SESSION['mensaje']);
+                $categorias = $categoriaController->listarCategorias();
+                include "../adminView/Categoria.php";
         }
-
-        // Mostrar mensaje si existe
-        $mensaje = $_SESSION['mensaje'] ?? "";
-        unset($_SESSION['mensaje']); // Limpiar mensaje
-
-        $categorias = $categoriaController->listarCategorias();
-
-        include "../adminView/Categoria.php";
         break;
     default:
         echo "Página no encontrada (404)";

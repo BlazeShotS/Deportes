@@ -33,6 +33,30 @@ class CategoriaController{
     }
 
 
+    public function editarCategoria($data){
+        if (!isset($data['id']) || !is_numeric($data['id'])) {
+            return "ID inválido.";
+        }
+
+        if (!isset($data['nombre_categoria']) || empty(trim($data['nombre_categoria']))) {
+        return "El nombre de la categoría es obligatorio.";
+        }   
+
+        $categoria = new Categoria();
+        $categoria->setId((int)$data['id']);
+        $categoria->setNombreCategoria(trim($data['nombre_categoria']));
+
+        if ($this->dao->editar($categoria)) {
+            return "Categoría actualizada correctamente.";
+        } else {
+            return "Error al actualizar la categoría.";
+        }
+    }
+
+
+
+
+
 }
 
 ?>
