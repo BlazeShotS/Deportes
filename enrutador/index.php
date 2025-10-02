@@ -53,11 +53,11 @@ switch ($action) {
                     exit;
                 } else {
                     // Mostrar el formulario con datos para editar
-                    $id = $_GET['id'] ?? null;
+                    $id = $_GET['id'] ?? null; //Chapo el id del html
                     $categoriaEditar = null;
                     if ($id) {
-                        foreach ($categoriaController->listarCategorias() as $cat) {
-                            if ($cat->getId() == $id) {
+                        foreach ($categoriaController->listarCategorias() as $cat) { 
+                            if ($cat->getId() == $id) {//Lista la categoria con ese id
                                 $categoriaEditar = $cat;
                                 break;
                             }
