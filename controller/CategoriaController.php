@@ -55,6 +55,17 @@ class CategoriaController{
 
 
 
+    public function eliminarCategoria($id){
+        if (!is_numeric($id)) {
+            return "ID inválido.";
+        }
+        if ($this->dao->eliminar((int)$id)) {
+            return "Categoría eliminada correctamente.";
+        } else {
+            return "Error al eliminar la categoría.";
+        }
+    }
+
 
 
 }

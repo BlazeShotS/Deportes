@@ -46,4 +46,13 @@ class CategoriaDAO{
         return $stmt->execute();
     }
     
+
+    public function eliminar($id){
+        $sql = "DELETE FROM categoria WHERE id = :id";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bindValue(":id", $id, PDO::PARAM_INT);
+
+        return $stmt->execute();
+    }
+
 }
