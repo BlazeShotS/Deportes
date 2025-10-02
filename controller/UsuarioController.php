@@ -58,7 +58,7 @@ class UsuarioController{
 
             // Redirigir según rol
             if ($usuario->getRol() === "ADMIN") {
-                header("Location: ../adminView/Panel.php");
+                header("Location: ../adminView/Panel.php"); //En esa archivo de la ruta tengo que poner el session_start();
             } elseif ($usuario->getRol() === "CLIENT") {
                 header("Location: ../clientView/Catalogo.php");
             } else {

@@ -34,7 +34,7 @@ $rol = $_SESSION['usuario_rol'] ?? '';
             <br>
             <button class="dropdown-btn">▼</button>
             <div class="dropdown-content">
-                <a href="/SITIOWEB/index.php">Cerrar sesión</a>
+                <a href="/SITIOWEB/view/logout.php">Cerrar sesión</a> <!--PULIR aca , validar con el controlador el usuario-->
             </div>
         </div>
     </header>
