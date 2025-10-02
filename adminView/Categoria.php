@@ -29,6 +29,7 @@ $mensaje = $mensaje ?? "";
 
 <body>
 
+    <!--Nombre de usuario, como nombre , apellido y rol-->
     <header class="header-panel">
         <h1>Bienvenido a categorias</h1>
         <div class="user-menu">
@@ -52,7 +53,12 @@ $mensaje = $mensaje ?? "";
             </div>
         <?php endif; ?>
 
-        <form class="form-categoria" action="../enrutador/index.php?action=categorias" method="POST">
+        <form class="form-categoria" action="../enrutador/index.php?action=categorias&sub=<?= isset($categoriaEditar) ? "editar" : "crear" ?>" method="POST">
+
+           <?php if (isset($categoriaEditar)): ?>
+           <input type="hidden" name="id" value="<?= htmlspecialchars($categoriaEditar->getId()) ?>">
+           <?php endif; ?>
+
             <div class="form-group">
                 <label for="nombre_categoria">Nombre de la categoría:</label>
                 <input type="text" id="nombre_categoria" name="nombre_categoria" required>
@@ -74,11 +80,14 @@ $mensaje = $mensaje ?? "";
             </thead>
             <tbody>
                 <?php if (!empty($categorias)): ?>
-                    <?php foreach ($categorias as $cat): ?> <!--esa $categorias viene de mi enrutador -->
+                    <?php foreach ($categorias as $cat): ?> <!--esa $categorias viene de mi enrutador , $categorias es el array de mi objeto categoria y $cat es el objeto individual, cuando le doy $cat->getId, estoy diciendo que de ese objeto el id se muestra -->
                         <tr>
                             <td><?= htmlspecialchars($cat->getId()) ?></td>
                             <td><?= htmlspecialchars($cat->getNombreCategoria()) ?></td>
-                            <td>Editar | Eliminar</td>
+                            <td>
+                                <a href="../enrutador/index.php?action=categorias&sub=editar&id=<?= $cat->getId() ?>">Editar</a> | 
+                                <a href="../enrutador/index.php?action=categorias&sub=eliminar&id=<?= $cat->getId() ?>" onclick="return confirm('¿Seguro que deseas eliminar esta categoría?');">Eliminar</a>
+                            </td>
                         </tr>
                     <?php endforeach; ?>
                 <?php else: ?>

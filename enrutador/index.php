@@ -42,6 +42,7 @@ switch ($action) {
                     header("Location: ../enrutador/index.php?action=categorias&sub=listar");
                     exit;
                 }
+                //include "../adminView/CategoriaForm.php";
                 break;
 
             case "editar":
@@ -50,12 +51,23 @@ switch ($action) {
                     $_SESSION['mensaje'] = $mensaje;
                     header("Location: ../enrutador/index.php?action=categorias&sub=listar");
                     exit;
+                } else {
+                    // Mostrar el formulario con datos para editar
+                    $id = $_GET['id'] ?? null;
+                    $categoriaEditar = null;
+                    if ($id) {
+                        foreach ($categoriaController->listarCategorias() as $cat) {
+                            if ($cat->getId() == $id) {
+                                $categoriaEditar = $cat;
+                                break;
+                            }
+                        }
+                    }
+                    $mensaje = $_SESSION['mensaje'] ?? "";
+                    unset($_SESSION['mensaje']);
+                    $categorias = $categoriaController->listarCategorias();
+                    include "../adminView/Categoria.php";
                 }
-                $id = $_GET['id'] ?? null;
-                $categoria = $categoriaController->buscarCategoriaPorId($id);
-                include "../adminView/CategoriaForm.php"; // mismo form, reutilizado
-                break;
-
             case "eliminar":
                 $id = $_GET['id'] ?? null;
                 $mensaje = $categoriaController->eliminarCategoria($id);
@@ -67,7 +79,7 @@ switch ($action) {
                 $mensaje = $_SESSION['mensaje'] ?? "";
                 unset($_SESSION['mensaje']);
                 $categorias = $categoriaController->listarCategorias();
-                include "../adminView/Categoria.php";
+                include "../adminView/Categoria.php"; //Este incluide sirve porque indica que la accion se hara en esta pestaña
         }
         break;
     default:
