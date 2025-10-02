@@ -9,15 +9,6 @@ class CategoriaDAO{
         $this->conn = $db;
     }
 
-    public function registrar(Categoria $categoria){        
-        $sql = "INSERT INTO categoria (nombre_categoria) VALUES (:nombre_categoria)";
-        $stmt = $this->conn->prepare($sql);
-
-        $stmt->bindValue(":nombre_categoria", $categoria->getNombreCategoria());
-        return $stmt->execute();
-    }
-
-
     public function listar(): array {        
         $sql = "SELECT * FROM categoria";
         $stmt = $this->conn->prepare($sql);
@@ -35,6 +26,14 @@ class CategoriaDAO{
         return $resultado;
     }
     
+
+    public function registrar(Categoria $categoria){        
+        $sql = "INSERT INTO categoria (nombre_categoria) VALUES (:nombre_categoria)";
+        $stmt = $this->conn->prepare($sql);
+
+        $stmt->bindValue(":nombre_categoria", $categoria->getNombreCategoria());
+        return $stmt->execute();
+    }
 
     
 }

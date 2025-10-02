@@ -30,7 +30,7 @@ $mensaje = $mensaje ?? "";
 <body>
 
     <header class="header-panel">
-        <h1>Bienvenido al Panel</h1>
+        <h1>Bienvenido a categorias</h1>
         <div class="user-menu">
             <span class="user-name">
                 <?php echo $nombre . " " . $apellido; ?> (<?php echo $rol; ?>)
@@ -74,7 +74,7 @@ $mensaje = $mensaje ?? "";
             </thead>
             <tbody>
                 <?php if (!empty($categorias)): ?>
-                    <?php foreach ($categorias as $cat): ?>
+                    <?php foreach ($categorias as $cat): ?> <!--esa $categorias viene de mi enrutador -->
                         <tr>
                             <td><?= htmlspecialchars($cat->getId()) ?></td>
                             <td><?= htmlspecialchars($cat->getNombreCategoria()) ?></td>

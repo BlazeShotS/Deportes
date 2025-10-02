@@ -68,6 +68,7 @@ $rol = $_SESSION['usuario_rol'] ?? '';
 
     <?php include '../partials/footer.php'; ?> <!-- Incluye el footer -->
 
+    <!--Para cerrar sesion-->
     <script>
         document.querySelector(".dropdown-btn").addEventListener("click", function() {
             document.querySelector(".dropdown-content").classList.toggle("show");
