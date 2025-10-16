@@ -31,7 +31,7 @@ switch ($action) {
             include "../view/RegistroUsuario.php";
         }
         break;
-    case "categorias":
+    case "categorias": //este case es todo acerca de categorias , como el crud por ejemplo
         $method = $_SERVER["REQUEST_METHOD"];
         $subAction = $_GET['sub'] ?? "listar";
 
