@@ -38,7 +38,7 @@ switch ($action) {
         switch ($subAction) {
             case "crear":
                 if ($method === "POST") {
-                    $mensaje = $categoriaController->registrarCategoria($_POST);
+                    $mensaje = $categoriaController->registrarCategoria($_POST);//Viene de mi CategoriaController
                     $_SESSION['mensaje'] = $mensaje;
                     header("Location: ../enrutador/index.php?action=categorias&sub=listar");
                     exit;
