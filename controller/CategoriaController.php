@@ -19,7 +19,7 @@ class CategoriaController{
 
     public function registrarCategoria($data){
         $categoria = new Categoria();
-        if (!isset($data['nombre_categoria']) || empty(trim($data['nombre_categoria']))) {
+        if (!isset($data['nombre_categoria']) || empty(trim($data['nombre_categoria']))) { //Ese nombre_categoria viene del html 
             return "El nombre de la categoría es obligatorio.";
         }
 
