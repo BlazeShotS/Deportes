@@ -25,7 +25,7 @@ class CategoriaController{
 
         $categoria->setNombreCategoria(trim($data['nombre_categoria']));
 
-        if ($this->dao->registrar($categoria)) {
+        if ($this->dao->registrar($categoria)) {//Llamando a mi metodo registrar del DAO
             return "Categoría registrada correctamente.";
         } else {
             return "Error al registrar la categoría.";
