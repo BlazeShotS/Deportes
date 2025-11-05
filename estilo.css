@@ -1,5 +1,4 @@
-/* assets/css/style.css - Versión básica y sencilla */
-
+/* --- Estilos existentes --- */
 body {
   margin: 0;
   font-family: Arial, sans-serif;
@@ -31,6 +30,10 @@ nav ul {
 nav a {
   color: #fff;
   text-decoration: none;
+  transition: color 0.3s ease;
+}
+nav a:hover {
+  color: #ffdd57;
 }
 
 .hero {
@@ -39,12 +42,15 @@ nav a {
   margin-top: 20px;
   text-align: center;
   border-radius: 8px;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.8s forwards;
 }
 
 .hero h1 {
   margin-bottom: 10px;
+  transition: color 0.3s ease;
 }
-
 .hero p {
   margin-bottom: 20px;
 }
@@ -57,6 +63,13 @@ nav a {
   background-color: #2563eb;
   border-radius: 5px;
   margin-right: 10px;
+  transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn:hover {
+  background-color: #1e40af;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
 }
 
 .cards {
@@ -74,6 +87,23 @@ nav a {
   width: 250px;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
   text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.8s forwards;
+  animation-delay: 0.2s; /* Se puede ajustar individualmente */
+}
+
+.card:nth-child(2) {
+  animation-delay: 0.4s;
+}
+.card:nth-child(3) {
+  animation-delay: 0.6s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
 }
 
 footer {
@@ -82,4 +112,10 @@ footer {
   margin-top: 20px;
   background-color: #333;
   color: #fff;
+}
+
+/* --- Animaciones --- */
+@keyframes fadeInUp {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
 }
