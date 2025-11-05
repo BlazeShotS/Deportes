@@ -12,37 +12,42 @@
 
 
   <main class="container">
+    <!-- HERO PRINCIPAL -->
     <section class="hero">
       <div class="hero-inner">
-        <h1>Bienvenido a tu página principal</h1>
-        <p class="lead">Plantilla limpia y responsive creada con HTML y CSS puro.</p>
+        <h1>¡Eleva tu rendimiento con estilo!</h1>
+        <p class="lead">Descubre la mejor ropa deportiva para entrenar, correr o simplemente sentirte cómodo cada día.</p>
         <div class="actions">
-          <a class="btn btn-primary" href="#">Comenzar</a>
-          <a class="btn btn-outline" href="#">Ver más</a>
+          <a class="btn btn-primary" href="#">Comprar ahora</a>
+          <a class="btn btn-outline" href="#">Explorar colección</a>
         </div>
 
+        <!-- TARJETAS DE CATEGORÍAS -->
         <div class="cards">
           <div class="card">
-            <h3>Diseño responsivo</h3>
-            <p>Se adapta a móviles, tabletas y escritorio.</p>
+            <h3>Para Ellas</h3>
+            <p>Leggings, tops y conjuntos diseñados para moverte con libertad y estilo.</p>
           </div>
           <div class="card">
-            <h3>Fácil de editar</h3>
-            <p>Modifica textos, colores y estructura rápidamente.</p>
+            <h3>Para Ellos</h3>
+            <p>Pantalones, camisetas y sudaderas con tecnología transpirable y ajuste perfecto.</p>
           </div>
           <div class="card">
-            <h3>Ligera y rápida</h3>
-            <p>Sin librerías adicionales: carga rápida y buena base para ampliar.</p>
+            <h3>Accesorios</h3>
+            <p>Gorras, mochilas, guantes y más para acompañarte en cada entrenamiento.</p>
           </div>
         </div>
       </div>
     </section>
 
+    <!-- SECCIÓN INSPIRACIONAL -->
     <section class="usage">
-      <h2>¿Cómo usarla?</h2>
-      <p class="lead">Copia este archivo como <code>index.html</code> y ábrelo en tu navegador. Los estilos están en <code>assets/css/style.css</code>.</p>
+      <h2>Motívate cada día</h2>
+      <p class="lead">En <strong>Tendaly Sport</strong> creemos que el deporte es más que un hábito: es una forma de vida. Viste cómodo, luce bien y rinde al máximo. 💪</p>
+      <p><a href="#" class="btn btn-primary">Descubre más</a></p>
     </section>
   </main>
+
 
   <?php include 'partials/footer.php'; ?> <!-- Incluye el header -->
 
