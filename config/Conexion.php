@@ -8,7 +8,7 @@ class Database{
     private $password = "root"; /*root*/         
     public $conn;
 
-    
+    //Clase conexion
     public function getConnection() {
         $this->conn = null;
         try { //Acceso a la variable , mediante $this -> host
