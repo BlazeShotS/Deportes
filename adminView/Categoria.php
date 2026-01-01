@@ -1,5 +1,8 @@
 <?php
 
+require_once __DIR__ . '/../ruta.php';
+
+
 // Si no hay sesión iniciada, redirige al login
 if (!isset($_SESSION['usuario_id'])) {
     header("Location: ../login.php");
@@ -23,7 +26,7 @@ $mensaje = $mensaje ?? "";
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Categoria</title>
-    <link rel="stylesheet" href="/SITIOWEB/assets/css/Categoria.css">
+    <link rel="stylesheet" href="<?= BASE_URL ?>assets/css/Categoria.css">
 </head>
 
 <body>
@@ -36,7 +39,7 @@ $mensaje = $mensaje ?? "";
                 <?php echo $nombre . " " . $apellido; ?> (<?php echo $rol; ?>)
             </span>
             <br>
-            <a href="/SITIOWEB/adminView/Panel.php" style="color: white;">Volver</a>
+            <a href="<?= BASE_URL ?>adminView/Panel.php" style="color: white;">Volver</a>
 
         </div>
     </header>
@@ -118,7 +121,7 @@ $mensaje = $mensaje ?? "";
     </script>
 
 
-    <?php include '../partials/footer.php'; ?> <!-- Incluye el footer -->
+    <?php include __DIR__ . '/../partials/footer.php'; ?> <!-- Incluye el footer -->
 
 
 </body>

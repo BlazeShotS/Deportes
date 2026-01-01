@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once __DIR__ . "/../controller/UsuarioController.php";
+require_once __DIR__ . "/../controller/UsuarioController.php"; /* /../ el DIR me manda al archivo actual  y ese /../ hace que suba un escalon o a la carpeta de arriva MIENTRAS que ../ esto me ayuda a posicionarme en una carpeta */
 require_once __DIR__ . "/../controller/CategoriaController.php";
 
 

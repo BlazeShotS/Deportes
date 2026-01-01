@@ -1,3 +1,8 @@
+<?php
+require_once __DIR__ . '/../ruta.php';
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,7 +10,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Footer</title>
-    <link rel="stylesheet" href="../estilo.css">
+    <link rel="stylesheet" href="<?= BASE_URL ?>estilo.css">
 </head>
 
 <body>

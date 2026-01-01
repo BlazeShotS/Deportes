@@ -1,6 +1,8 @@
 <?php
 session_start();
 
+require_once __DIR__ . '/../ruta.php';
+
 // Si no hay sesión iniciada, redirige al login
 if (!isset($_SESSION['usuario_id'])) {
     header("Location: ../login.php");
@@ -20,7 +22,7 @@ $rol = $_SESSION['usuario_rol'] ?? '';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Panel Admin</title>
-    <link rel="stylesheet" href="/SITIOWEB/assets/css/Panel.css">
+    <link rel="stylesheet" href="<?= BASE_URL ?>assets/css/Panel.css">
 </head>
 
 <body>
@@ -34,7 +36,7 @@ $rol = $_SESSION['usuario_rol'] ?? '';
             <br>
             <button class="dropdown-btn">▼</button>
             <div class="dropdown-content">
-                <a href="/SITIOWEB/view/logout.php">Cerrar sesión</a> <!--PULIR aca , validar con el controlador el usuario-->
+                <a href="<?= BASE_URL ?>view/logout.php">Cerrar sesión</a> <!--PULIR aca , validar con el controlador el usuario-->
             </div>
         </div>
     </header>
@@ -56,7 +58,7 @@ $rol = $_SESSION['usuario_rol'] ?? '';
         <div class="card ropa-deportiva">
             <h2>Categoria</h2>
             <p>Agrega categorias de ropas deportivas.</p>
-            <a href="/SITIOWEB/enrutador/index.php?action=categorias" class="btn">Explorar</a>
+            <a href="<?= BASE_URL ?>enrutador/index.php?action=categorias" class="btn">Explorar</a>
         </div>
 
         <div class="card quejas-reclamos">
@@ -66,7 +68,7 @@ $rol = $_SESSION['usuario_rol'] ?? '';
         </div>
     </main>
 
-    <?php include '../partials/footer.php'; ?> <!-- Incluye el footer -->
+    <?php include __DIR__ . '/../partials/footer.php'; ?> <!-- Incluye el footer -->
 
     <!--Para cerrar sesion-->
     <script>

@@ -1,11 +1,11 @@
 <?php
 class Database{
-
+    
     //Variables
     private $host = "localhost";
-    private $db_name = "deportes";
-    private $username = "root";
-    private $password = "root";
+    private $db_name = "deportes"; /*deportes*/       /*tendalyvip_deportes*/
+    private $username = "root"; /*root*/             /*tendalyvip_abel*/
+    private $password = "root"; /*root*/         
     public $conn;
 
     
@@ -13,7 +13,7 @@ class Database{
         $this->conn = null;
         try { //Acceso a la variable , mediante $this -> host
             $this->conn = new PDO("mysql:host={$this->host};dbname={$this->db_name}",$this->username, $this->password);
-            $this->conn->exec("set names utf8");
+            $this->conn->exec("SET NAMES utf8mb4"); /*set names utf8*/
         } catch(PDOException $e) {
             echo "Error de conexión: " . $e->getMessage();
         }

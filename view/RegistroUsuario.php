@@ -1,13 +1,17 @@
+<?php
+require_once __DIR__ . '/../ruta.php';
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <title>Registro de Usuario</title>
-    <link rel="stylesheet" href="../assets/css/RegistroUsuario.css">
+    <link rel="stylesheet" href="<?= BASE_URL ?>assets/css/RegistroUsuario.css">
 </head>
 <body>
 
-    <?php include '../partials/header.php'; ?> <!-- Incluye el header -->
+    <?php include __DIR__ . '/../partials/header.php'; ?> <!-- Incluye el header -->
 
     <div class="form-container">
         <h2 class="form-title">Registrar Usuario</h2>
@@ -21,7 +25,7 @@
         </form>
     </div>
 
-    <?php include '../partials/footer.php'; ?> <!-- Incluye el footer -->
+    <?php include __DIR__ . '/../partials/footer.php'; ?> <!-- Incluye el footer -->
 
 </body>
 </html>

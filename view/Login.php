@@ -1,3 +1,7 @@
+<?php
+require_once __DIR__ . '/../ruta.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,12 +9,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <link rel="stylesheet" href="../assets/css/Login.css">
+    <link rel="stylesheet" href="<?= BASE_URL ?>assets/css/Login.css">
 </head>
 
 <body>
 
-    <?php include '../partials/header.php'; ?> <!-- Incluye el header -->
+    <?php include __DIR__ . '/../partials/header.php'; ?> <!-- Incluye el header -->
 
 
     <main class="main-login">
@@ -38,7 +42,7 @@
         </div>
     </main>
 
-    <?php include '../partials/footer.php'; ?> <!-- Incluye el footer -->
+    <?php include __DIR__ . '/../partials/footer.php'; ?>
 
 </body>
 

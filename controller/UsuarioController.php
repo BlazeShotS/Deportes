@@ -3,7 +3,6 @@ require_once __DIR__ . "/../config/Conexion.php"; #/../ ESTO SIGNIFICA SUBIR UN 
 require_once __DIR__ . "/../model/Usuario.php";
 require_once __DIR__ . "/../dao/UsuarioDAO.php";
 
-
 class UsuarioController{
     
     //Con $ → variables, propiedades, parámetros (valores guardados en memoria).

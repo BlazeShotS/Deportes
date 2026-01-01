@@ -1,14 +1,18 @@
+<?php
+require_once __DIR__ . '/ruta.php';
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Página de inicio - Simple</title>
-  <link rel="stylesheet" href="estilo.css">
+  <link rel="stylesheet" href="<?= BASE_URL ?>estilo.css"> <!--estilo.css-->
 </head>
 <body>
   
-  <?php include 'partials/header.php'; ?> <!-- Incluye el header -->
+  <?php include __DIR__ . '/partials/header.php'; ?>  <!-- Incluye el header -->
 
 
   <main class="container">
@@ -49,7 +53,7 @@
   </main>
 
 
-  <?php include 'partials/footer.php'; ?> <!-- Incluye el header -->
+  <?php include __DIR__ . '/partials/footer.php'; ?> <!-- Incluye el header -->
 
 </body>
 </html>
